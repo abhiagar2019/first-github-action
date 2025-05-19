@@ -1,7 +1,7 @@
 # This is our simple Python program
 
 def get_greeting():
-    return "GitHub Actions is super cool! ✨"
+    return "GitHub Actions is NOT super cool! ✨"
 
 # This part below means: "If this app.py file is run directly,
 # then do the following." It won't run if another file (like our test file)
