@@ -1,0 +1,31 @@
+# This is the name of our robot's instruction set
+name: My Python Robot
+
+# When should our robot do its job?
+on:
+  push: # When we "push" (add or update) code
+    branches: [ main ] # Specifically when we push to the 'main' branch
+
+# What jobs should our robot do?
+jobs:
+  run_my_python_script: # We can name this job anything we like
+    # What kind of computer should our robot use for this job?
+    # 'ubuntu-latest' means a computer running the latest version of Ubuntu (a type of Linux)
+    # GitHub provides these computers for free for public projects!
+    runs-on: ubuntu-latest
+
+    # What are the steps our robot needs to follow for this job?
+    steps:
+      # Step 1: Get the code from our repository
+      - name: Check out repository code
+        uses: actions/checkout@v4 # 'actions/checkout@v4' is a pre-built Action that downloads your code to the robot's computer
+
+      # Step 2: Set up the Python language on the robot's computer
+      - name: Set up Python
+        uses: actions/setup-python@v5 # 'actions/setup-python@v5' is a pre-built Action that installs Python
+        with:
+          python-version: '3.10' # We're telling it to use Python version 3.10
+
+      # Step 3: Run our Python script!
+      - name: Run our Python script (app.py)
+        run: python app.py # This command tells the robot to use Python to run our 'app.py' file
